@@ -129,6 +129,12 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
               Neden MediGuide?
             </h2>
+            <p className="text-lg text-secondary-600 mb-8 max-w-3xl mx-auto">
+              Güvenilir ilaç bilgileri, etkileşim kontrolü ve sağlık rehberi ile sağlığınız için en iyi kaynak
+            </p>
+            <p className="text-sm text-secondary-500 mb-8">
+              Son Güncelleme: {new Date().toLocaleDateString('tr-TR')}
+            </p>
             <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
               Sağlığınız için en güvenilir ve kapsamlı ilaç bilgilendirme platformu
             </p>
