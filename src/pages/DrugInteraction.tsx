@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Shield, AlertTriangle, Search, Plus, CheckCircle } from 'lucide-react'
+import { Shield, Search, Plus, CheckCircle } from 'lucide-react'
 import DrugInteractionChecker from '../components/DrugInteractionChecker'
 
 const DrugInteraction = () => {
