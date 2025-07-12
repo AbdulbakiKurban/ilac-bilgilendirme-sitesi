@@ -173,7 +173,7 @@ const HealthGuide = () => {
       {
         title: 'Günlük Sağlık Rutini',
         description: 'Sağlıklı bir gün için yapmanız gerekenler',
-        icon: Clock,
+      icon: Clock,
         color: 'from-blue-500 to-cyan-500',
         tips: [
           'Günde 7-8 saat uyuyun',
@@ -384,7 +384,7 @@ const HealthGuide = () => {
                 variants={itemVariants}
                 className="text-5xl md:text-6xl font-bold mb-6 leading-tight"
               >
-                Sağlık Rehberi
+            Sağlık Rehberi
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
                   Merkezi
                 </span>
@@ -463,8 +463,8 @@ const HealthGuide = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
+                </div>
+              </div>
         </motion.div>
 
         {/* Main Content */}
@@ -479,7 +479,7 @@ const HealthGuide = () => {
             <div className="flex flex-wrap gap-2 bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200">
               {tabs.map((tab) => {
                 const IconComponent = tab.icon
-                return (
+            return (
                   <motion.button
                     key={tab.id}
                     whileHover={{ scale: 1.05 }}
@@ -521,7 +521,6 @@ const HealthGuide = () => {
                     whileHover="hover"
                     initial="rest"
                     animate="rest"
-                    variants={cardHoverVariants}
                     className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-green-300 transition-all duration-300 h-full relative overflow-hidden group"
                   >
                     {/* Animated background gradient */}
@@ -536,15 +535,15 @@ const HealthGuide = () => {
                         >
                           <guide.icon className="h-8 w-8 text-white" />
                         </motion.div>
-                      </div>
+                  </div>
                       
                       <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
-                        {guide.title}
+                      {guide.title}
                       </h3>
                       
                       <p className="text-gray-600 text-center leading-relaxed mb-6">
-                        {guide.description}
-                      </p>
+                      {guide.description}
+                    </p>
                       
                       <div className="space-y-3">
                         {guide.tips.map((tip, tipIndex) => (
@@ -558,9 +557,9 @@ const HealthGuide = () => {
                             <CheckCircle className="h-4 w-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                             <span className="text-gray-700 text-sm">{tip}</span>
                           </motion.div>
-                        ))}
-                      </div>
+                      ))}
                     </div>
+                  </div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -568,9 +567,9 @@ const HealthGuide = () => {
           </AnimatePresence>
 
           {/* Additional Resources */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-16"
           >
@@ -581,7 +580,7 @@ const HealthGuide = () => {
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Sağlığınız için faydalı olabilecek ek kaynaklar ve araçlar
               </p>
-            </div>
+                </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -621,8 +620,8 @@ const HealthGuide = () => {
                   <div className="flex justify-center mb-4">
                     <div className={`p-3 bg-gradient-to-r ${resource.color} rounded-full shadow-lg`}>
                       <resource.icon className="h-6 w-6 text-white" />
-                    </div>
-                  </div>
+                </div>
+              </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {resource.title}
                   </h3>
@@ -631,13 +630,13 @@ const HealthGuide = () => {
                   </p>
                 </motion.div>
               ))}
-            </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
           {/* Expert Advice Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-16"
           >
@@ -684,7 +683,7 @@ const HealthGuide = () => {
                       <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
                         {expert.avatar}
                       </div>
-                      <div>
+            <div>
                         <h4 className="font-bold text-gray-900">{expert.name}</h4>
                         <p className="text-sm text-gray-600">{expert.specialty}</p>
                       </div>
@@ -695,7 +694,7 @@ const HealthGuide = () => {
               </div>
             </div>
           </motion.div>
-        </div>
+          </div>
       </div>
     </div>
   )

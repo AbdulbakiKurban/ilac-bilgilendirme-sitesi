@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Search, Pill, AlertTriangle, Info, FileText, Baby, Shield, Clock, TrendingUp, Sparkles, Zap, Heart, Target, Award, ArrowRight, Star, Users, BookOpen, Download, Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, RotateCcw, ChevronLeft, ChevronRight, CheckCircle, Globe, Database, Lock, Eye, Brain, Activity, Leaf, Coffee, Moon, Sun, Droplets, Wind, Phone, Mail, MapPin, Instagram, Twitter, Facebook, Youtube, Linkedin } from 'lucide-react'
+import { Search, Pill, AlertTriangle, Info, FileText, Baby, Shield, Clock, TrendingUp, Sparkles, Zap, Heart, Target, Award, ArrowRight, Star, Users, BookOpen, Download, Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, RotateCcw, ChevronLeft, ChevronRight, CheckCircle, Globe, Database, Lock, Eye, Brain, Activity, Leaf, Coffee, Moon, Sun, Droplets, Wind, Phone, Mail, MapPin, Instagram, Twitter, Facebook, Youtube } from 'lucide-react'
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
-  const [isMuted, setIsMuted] = useState(false)
-  const [isFullscreen, setIsFullscreen] = useState(false)
+  // const [isMuted, setIsMuted] = useState(false)
+  // const [isFullscreen, setIsFullscreen] = useState(false)
 
   // Helper function to render icon component
   const renderIcon = (iconComponent: any, className: string) => {

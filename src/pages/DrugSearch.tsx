@@ -155,7 +155,7 @@ const DrugSearch = () => {
             </motion.div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent text-center leading-tight">
               İlaç Bilgi Merkezi
-            </h1>
+          </h1>
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -179,19 +179,19 @@ const DrugSearch = () => {
           ref={searchRef}
         >
           <div className="relative max-w-2xl mx-auto">
-            <div className="relative">
+          <div className="relative">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
+            <input
+              type="text"
                 placeholder="İlaç adı, etken madde veya kategori ara..."
-                value={searchTerm}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value)
-                  setShowSuggestions(true)
-                }}
-                onFocus={() => setShowSuggestions(true)}
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value)
+                setShowSuggestions(true)
+              }}
+              onFocus={() => setShowSuggestions(true)}
                 className="w-full pl-12 pr-4 py-4 text-lg bg-white/80 backdrop-blur-sm border-2 border-gray-200 rounded-2xl shadow-lg focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 outline-none"
-              />
+            />
               <motion.div
                 animate={{ scale: searchTerm ? 1 : 0.8 }}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2"
@@ -230,7 +230,7 @@ const DrugSearch = () => {
                       </div>
                     </div>
                   )}
-                  
+
                   <div className="p-4">
                     <h3 className="text-sm font-semibold text-gray-700 mb-2 flex items-center">
                       <TrendingUp className="h-4 w-4 mr-2" />
@@ -306,13 +306,13 @@ const DrugSearch = () => {
           </div>
 
           <AnimatePresence>
-            {showFilters && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
+          {showFilters && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
                 className="mt-6 p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200"
-              >
+            >
                 <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
                   <Award className="h-6 w-6 mr-2 text-blue-600" />
                   Kategoriler
@@ -320,25 +320,25 @@ const DrugSearch = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {categories.map((category, index) => (
                     <motion.button
-                      key={category}
+                    key={category}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedCategory(category)}
+                    onClick={() => setSelectedCategory(category)}
                       className={`px-6 py-4 rounded-xl text-sm font-medium transition-all duration-300 ${
-                        selectedCategory === category
+                      selectedCategory === category
                           ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg transform scale-105'
                           : 'bg-white/60 backdrop-blur-sm text-gray-700 hover:bg-white/80 border-2 border-gray-200 hover:border-blue-300'
-                      }`}
-                    >
-                      {category}
+                    }`}
+                  >
+                    {category}
                     </motion.button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+                ))}
+              </div>
+            </motion.div>
+          )}
           </AnimatePresence>
         </motion.div>
 
@@ -399,19 +399,19 @@ const DrugSearch = () => {
                   <motion.div
                     variants={cardHoverVariants}
                     className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:border-blue-300 transition-all duration-300"
-                  >
+                >
                     <div className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="relative">
+                  <div className="flex items-start space-x-4">
+                    <div className="relative">
                           <motion.div
                             whileHover={{ scale: 1.1 }}
                             transition={{ duration: 0.3 }}
                           >
-                            <img
-                              src={drug.image}
-                              alt={drug.name}
+                      <img
+                        src={drug.image}
+                        alt={drug.name}
                               className="w-20 h-20 object-cover rounded-xl shadow-md"
-                            />
+                      />
                           </motion.div>
                           <motion.div
                             initial={{ scale: 0 }}
@@ -421,57 +421,57 @@ const DrugSearch = () => {
                           >
                             <CheckCircle className="h-4 w-4" />
                           </motion.div>
-                        </div>
-                        
-                        <div className="flex-1">
+                    </div>
+                    
+                    <div className="flex-1">
                           <div className="flex items-center justify-between mb-2">
                             <motion.h3
                               whileHover={{ color: "#3b82f6" }}
                               className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300"
                             >
-                              {drug.name}
+                          {drug.name}
                             </motion.h3>
-                            {drug.prescription && (
+                        {drug.prescription && (
                               <motion.div
                                 whileHover={{ scale: 1.1 }}
                                 className="relative group"
                               >
                                 <FileText className={`h-5 w-5 ${getPrescriptionColor(drug.prescriptionColor)}`} />
                                 <span className={`absolute -top-8 left-1/2 transform -translate-x-1/2 ${getPrescriptionBgColor(drug.prescriptionColor)} text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg`}>
-                                  Reçeteli
-                                </span>
+                              Reçeteli
+                            </span>
                               </motion.div>
                             )}
                           </div>
                           
                           <p className="text-sm text-gray-600 mb-3 font-medium">
-                            {drug.genericName}
-                          </p>
+                        {drug.genericName}
+                      </p>
                           
                           <motion.div
                             whileHover={{ scale: 1.05 }}
                             className="inline-block bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 text-xs px-3 py-1.5 rounded-full font-medium mb-3"
                           >
-                            {drug.category}
+                          {drug.category}
                           </motion.div>
                           
                           <p className="text-sm text-gray-700 mb-4 line-clamp-2 leading-relaxed">
-                            {drug.description}
-                          </p>
-                          
+                        {drug.description}
+                      </p>
+                      
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center text-xs text-gray-500">
-                              <Info className="h-3 w-3 mr-1" />
+                          <Info className="h-3 w-3 mr-1" />
                               <span className="line-clamp-1">{drug.dosage.adults}</span>
-                            </div>
+                        </div>
                             <motion.div
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                             >
-                              <Link
-                                to={`/drug/${drug.id}`}
+                        <Link
+                          to={`/drug/${drug.id}`}
                                 className="text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center group-hover:underline transition-all duration-200"
-                              >
+                        >
                                 Detayları Gör
                                 <motion.div
                                   animate={{ x: [0, 5, 0] }}
@@ -479,7 +479,7 @@ const DrugSearch = () => {
                                 >
                                   →
                                 </motion.div>
-                              </Link>
+                        </Link>
                             </motion.div>
                           </div>
                           
@@ -537,15 +537,15 @@ const DrugSearch = () => {
               >
                 <Shield className="h-8 w-8 text-yellow-600" />
               </motion.div>
-              <div>
+            <div>
                 <h4 className="font-bold text-yellow-800 mb-2 text-lg flex items-center">
                   <Heart className="h-5 w-5 mr-2" />
                   Önemli Güvenlik Uyarısı
                 </h4>
                 <p className="text-yellow-700 leading-relaxed">
-                  Bu bilgiler sadece bilgilendirme amaçlıdır. İlaç kullanımı öncesi mutlaka doktorunuza danışın. 
+                Bu bilgiler sadece bilgilendirme amaçlıdır. İlaç kullanımı öncesi mutlaka doktorunuza danışın. 
                   Reçeteli ilaçları doktor reçetesi olmadan kullanmayın. Sağlığınız bizim önceliğimizdir.
-                </p>
+              </p>
               </div>
             </div>
           </div>

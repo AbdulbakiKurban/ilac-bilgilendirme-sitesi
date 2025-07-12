@@ -325,10 +325,10 @@ const DrugInteraction = () => {
                   </motion.div>
                   <div className="text-sm text-gray-600 font-medium">
                     {stat.label}
-                  </div>
+          </div>
                 </motion.div>
               ))}
-            </div>
+          </div>
           </div>
         </motion.div>
 
@@ -366,10 +366,10 @@ const DrugInteraction = () => {
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
-            <motion.div
+        <motion.div
               key={activeTab}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
@@ -391,14 +391,14 @@ const DrugInteraction = () => {
                         <h3 className="text-2xl font-bold text-gray-900">İlaç Etkileşim Kontrolü</h3>
                       </div>
                       
-                      <DrugInteractionChecker />
-                    </motion.div>
+          <DrugInteractionChecker />
+        </motion.div>
                   </div>
 
                   {/* Sidebar */}
                   <div className="space-y-6">
                     {/* Features */}
-                    <motion.div
+        <motion.div
                       whileHover="hover"
                       initial="rest"
                       animate="rest"
@@ -407,7 +407,7 @@ const DrugInteraction = () => {
                     >
                       <h3 className="text-xl font-bold text-gray-900 mb-4">Özellikler</h3>
                       
-                      <div className="space-y-4">
+            <div className="space-y-4">
                         {features.map((feature, index) => (
                           <motion.div
                             key={index}
@@ -418,14 +418,14 @@ const DrugInteraction = () => {
                           >
                             <div className={`p-2 bg-gradient-to-r ${feature.color} rounded-lg mr-3 flex-shrink-0`}>
                               <feature.icon className="h-4 w-4 text-white" />
-                            </div>
-                            <div>
+                </div>
+                <div>
                               <h4 className="font-semibold text-gray-900 text-sm">{feature.title}</h4>
                               <p className="text-gray-600 text-xs">{feature.description}</p>
-                            </div>
+                </div>
                           </motion.div>
                         ))}
-                      </div>
+              </div>
                     </motion.div>
 
                     {/* Tips */}
@@ -450,17 +450,17 @@ const DrugInteraction = () => {
                             <div className="flex items-start">
                               <div className={`p-2 bg-gradient-to-r ${tip.color} rounded-lg mr-3 flex-shrink-0`}>
                                 <tip.icon className="h-4 w-4 text-white" />
-                              </div>
-                              <div>
+                </div>
+                <div>
                                 <h4 className="font-semibold text-gray-900 text-sm mb-1">{tip.title}</h4>
                                 <p className="text-gray-600 text-xs">{tip.description}</p>
-                              </div>
-                            </div>
+                </div>
+              </div>
                           </motion.div>
                         ))}
                       </div>
                     </motion.div>
-                  </div>
+                </div>
                 </div>
               )}
 
@@ -482,9 +482,9 @@ const DrugInteraction = () => {
                     <div className="flex items-center mb-6">
                       <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl mr-4">
                         <BookOpen className="h-6 w-6 text-white" />
-                      </div>
+              </div>
                       <h3 className="text-2xl font-bold text-gray-900">Güvenli İlaç Kullanım Rehberi</h3>
-                    </div>
+            </div>
                     
                     <div className="prose prose-lg max-w-none">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -500,8 +500,8 @@ const DrugInteraction = () => {
                               <li>• Aç/tok karnına alma talimatlarına uyun</li>
                               <li>• İlaçları uygun koşullarda saklayın</li>
                             </ul>
-                          </div>
-                          
+          </div>
+
                           <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
                             <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
                               <Shield className="h-5 w-5 text-green-500 mr-2" />
@@ -513,8 +513,8 @@ const DrugInteraction = () => {
                               <li>• Hamilelik/emzirme durumunu bildirin</li>
                               <li>• Yan etkileri takip edin</li>
                             </ul>
-                          </div>
-                        </div>
+                </div>
+              </div>
                         
                         <div className="space-y-6">
                           <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 border border-orange-200">
@@ -528,7 +528,7 @@ const DrugInteraction = () => {
                               <li>• Vitamin ve takviyeleri unutmayın</li>
                               <li>• Alkol kullanımını belirtin</li>
                             </ul>
-                          </div>
+                </div>
                           
                           <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
                             <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
@@ -541,11 +541,11 @@ const DrugInteraction = () => {
                               <li>• Aşırı doz durumunda zehir danışma hattı</li>
                               <li>• İlaç hatırlatıcıları kullanın</li>
                             </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
                 </motion.div>
               )}
 
@@ -557,7 +557,7 @@ const DrugInteraction = () => {
                   className="space-y-6"
                 >
                   {/* FAQ Content */}
-                  <motion.div
+        <motion.div
                     whileHover="hover"
                     initial="rest"
                     animate="rest"
@@ -567,9 +567,9 @@ const DrugInteraction = () => {
                     <div className="flex items-center mb-6">
                       <div className="p-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl mr-4">
                         <HelpCircle className="h-6 w-6 text-white" />
-                      </div>
+              </div>
                       <h3 className="text-2xl font-bold text-gray-900">Sık Sorulan Sorular</h3>
-                    </div>
+              </div>
                     
                     <div className="space-y-4">
                       {[
@@ -604,8 +604,8 @@ const DrugInteraction = () => {
                           <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
                         </motion.div>
                       ))}
-                    </div>
-                  </motion.div>
+          </div>
+        </motion.div>
                 </motion.div>
               )}
             </motion.div>

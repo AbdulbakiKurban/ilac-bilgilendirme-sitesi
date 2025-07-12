@@ -301,7 +301,7 @@ const About = () => {
                 className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-medium mb-6"
               >
                 <Building className="h-4 w-4 mr-2" />
-                Hakkımızda
+            Hakkımızda
               </motion.div>
               
               <motion.h1
@@ -387,14 +387,14 @@ const About = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
+          </div>
           </div>
         </motion.div>
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Tab Navigation */}
-          <motion.div
+        <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -403,7 +403,7 @@ const About = () => {
             <div className="flex flex-wrap gap-2 bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-gray-200">
               {tabs.map((tab) => {
                 const IconComponent = tab.icon
-                return (
+              return (
                   <motion.button
                     key={tab.id}
                     whileHover={{ scale: 1.05 }}
@@ -418,17 +418,17 @@ const About = () => {
                     <IconComponent className="h-5 w-5 mr-2" />
                     {tab.label}
                   </motion.button>
-                )
-              })}
-            </div>
-          </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
-            <motion.div
+        <motion.div
               key={activeTab}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
@@ -442,7 +442,6 @@ const About = () => {
                   {/* Mission & Vision */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <motion.div
-                      variants={itemVariants}
                       whileHover="hover"
                       initial="rest"
                       animate="rest"
@@ -479,7 +478,6 @@ const About = () => {
                     </motion.div>
 
                     <motion.div
-                      variants={itemVariants}
                       whileHover="hover"
                       initial="rest"
                       animate="rest"
@@ -510,8 +508,8 @@ const About = () => {
                         <div className="flex items-center">
                           <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                           <span className="text-gray-700">Global erişim ve etki</span>
-                        </div>
-                      </div>
+                    </div>
+                    </div>
                     </motion.div>
                   </div>
 
@@ -539,8 +537,8 @@ const About = () => {
                         <div className="flex justify-center mb-4">
                           <div className={`p-3 bg-gradient-to-r ${value.color} rounded-full shadow-lg`}>
                             <value.icon className="h-6 w-6 text-white" />
-                          </div>
-                        </div>
+                  </div>
+                </div>
                         <h4 className="text-lg font-bold text-gray-900 mb-2">
                           {value.title}
                         </h4>
@@ -549,7 +547,7 @@ const About = () => {
                         </p>
                       </motion.div>
                     ))}
-                  </div>
+          </div>
                 </motion.div>
               )}
 
@@ -568,14 +566,14 @@ const About = () => {
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                       Uzman doktorlar, teknoloji uzmanları ve sağlık profesyonellerinden oluşan deneyimli ekibimiz
                     </p>
-                  </motion.div>
+        </motion.div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {team.map((member, index) => (
-                      <motion.div
+        <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ scale: 1.02, y: -5 }}
                         className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 text-center hover:shadow-xl transition-all duration-300"
@@ -586,17 +584,17 @@ const About = () => {
                           </div>
                         </div>
                         <h4 className="text-lg font-bold text-gray-900 mb-1">
-                          {member.name}
+                  {member.name}
                         </h4>
                         <p className="text-sm font-semibold text-indigo-600 mb-1">
-                          {member.role}
-                        </p>
+                  {member.role}
+                </p>
                         <p className="text-xs text-gray-500 mb-3">
                           {member.specialty}
                         </p>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                          {member.description}
-                        </p>
+                  {member.description}
+                </p>
                       </motion.div>
                     ))}
                   </div>
@@ -647,10 +645,10 @@ const About = () => {
                               {achievement.description}
                             </p>
                           </div>
-                        </div>
+              </div>
                       </motion.div>
-                    ))}
-                  </div>
+            ))}
+          </div>
                 </motion.div>
               )}
 
@@ -669,11 +667,10 @@ const About = () => {
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                       Sorularınız, önerileriniz veya işbirliği talepleriniz için bizimle iletişime geçin
                     </p>
-                  </motion.div>
+        </motion.div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <motion.div
-                      variants={itemVariants}
+        <motion.div
                       whileHover="hover"
                       initial="rest"
                       animate="rest"
@@ -706,17 +703,16 @@ const About = () => {
                         <div className="flex items-center">
                           <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mr-3">
                             <MapPin className="h-5 w-5 text-white" />
-                          </div>
+            </div>
                           <div>
                             <p className="font-semibold text-gray-900">Adres</p>
                             <p className="text-gray-600">İstanbul, Türkiye</p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
+            </div>
+            </div>
+          </div>
+        </motion.div>
 
-                    <motion.div
-                      variants={itemVariants}
+        <motion.div
                       whileHover="hover"
                       initial="rest"
                       animate="rest"
@@ -744,8 +740,8 @@ const About = () => {
                         ))}
                       </div>
                     </motion.div>
-                  </div>
-                </motion.div>
+          </div>
+        </motion.div>
               )}
             </motion.div>
           </AnimatePresence>
