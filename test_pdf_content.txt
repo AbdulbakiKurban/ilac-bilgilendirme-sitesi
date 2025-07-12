@@ -1,0 +1,27 @@
+İLAÇ BİLGİ FORMU
+
+İlaç Adı: Aspirin
+Jenerik Ad: Asetilsalisilik Asit
+Kategori: Ağrı Kesici
+Üretici: Bayer AG
+Etken Madde: Asetilsalisilik Asit
+Güç: 500mg
+Dozaj Formu: Tablet
+Paket Boyutu: 30 tablet
+Ruhsat No: TR-2023-002
+Ruhsat Sahibi: Bayer AG
+
+DOZAJ BİLGİLERİ:
+Erişkin: 500-1000mg, 4-6 saatte bir
+Çocuk: Kullanımı önerilmez
+Yaşlı: 500mg, 6-8 saatte bir
+Maksimum Günlük: 3 gram
+
+Yan Etkiler: Mide kanaması, Kulak çınlaması, Baş dönmesi
+İlaç Etkileşimleri: Warfarin, Diğer NSAİİ, Kortikosteroidler
+Uyarılar: Mide ülseri varsa kullanmayın, 18 yaş altı ateşli hastalıklarda kullanmayın
+
+Kullanım: Yemeklerle birlikte alın
+Saklama: Serin ve kuru yerde saklayın
+
+Açıklama: Ağrı kesici, ateş düşürücü ve kan sulandırıcı etkili klasik ilaç. 

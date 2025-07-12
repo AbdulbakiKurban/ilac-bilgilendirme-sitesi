@@ -1,0 +1,23 @@
+İlaç Adı: Parol
+Jenerik Ad: Parasetamol
+Kategori: Ağrı Kesici
+Üretici: Abdi İbrahim İlaç Sanayi ve Ticaret A.Ş.
+Etken Madde: Parasetamol
+Güç: 500mg
+Dozaj Formu: Tablet
+Paket Boyutu: 20 tablet
+Ruhsat No: TR-2023-001
+Ruhsat Sahibi: Abdi İbrahim İlaç Sanayi ve Ticaret A.Ş.
+
+Dozaj Bilgileri:
+Erişkin: 500-1000mg, 4-6 saatte bir
+Çocuk: 10-15mg/kg, 4-6 saatte bir
+Yaşlı: 500mg, 6-8 saatte bir
+Maksimum Günlük: 4 gram
+
+Yan Etkiler: Mide bulantısı, Karaciğer hasarı (yüksek dozda), Alerjik reaksiyonlar
+İlaç Etkileşimleri: Warfarin, Alkol, Diğer parasetamol içeren ilaçlar
+Uyarılar: Günde 4 gramı geçmeyin, Karaciğer hastalığı varsa dikkatli kullanın
+
+Kullanım: Yemeklerle birlikte veya aç karnına alınabilir
+Saklama: Oda sıcaklığında, nemden uzak saklayın 

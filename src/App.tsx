@@ -8,6 +8,7 @@ import DrugInteraction from './pages/DrugInteraction'
 import HealthGuide from './pages/HealthGuide'
 import About from './pages/About'
 import Footer from './components/Footer'
+import SmartDrugUploader from './components/SmartDrugUploader'
 
 function App() {
   return (

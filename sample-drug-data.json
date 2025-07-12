@@ -1,0 +1,87 @@
+{
+  "name": "Örnek İlaç",
+  "genericName": "Örnek Jenerik Ad",
+  "category": "Ağrı Kesici",
+  "description": "Bu örnek ilaç, PDF'den çıkarılan verilerin nasıl formatlanacağını gösterir.",
+  "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=150&h=150&fit=crop",
+  "prescription": false,
+  "dosage": {
+    "adults": "500-1000mg, 4-6 saatte bir",
+    "children": "10-15mg/kg, 4-6 saatte bir",
+    "elderly": "500mg, 6-8 saatte bir",
+    "maxDaily": "4 gram"
+  },
+  "sideEffects": [
+    "Mide bulantısı",
+    "Karaciğer hasarı (yüksek dozda)",
+    "Alerjik reaksiyonlar"
+  ],
+  "interactions": [
+    "Warfarin",
+    "Alkol",
+    "Diğer benzer ilaçlar"
+  ],
+  "warnings": [
+    "Günde 4 gramı geçmeyin",
+    "Karaciğer hastalığı varsa dikkatli kullanın"
+  ],
+  "howToUse": "Yemeklerle birlikte veya aç karnına alınabilir",
+  "storage": "Oda sıcaklığında, nemden uzak saklayın",
+  "manufacturer": "Örnek İlaç Sanayi A.Ş.",
+  
+  "tickImage": "/images/approved-tick.svg",
+  "boxImage": "/images/ornek-ilac-kutusu.jpg",
+  "approvalStatus": "approved",
+  "approvalDate": "2024-01-15",
+  "licenseNumber": "TR-2024-001",
+  "licenseHolder": "Örnek İlaç Sanayi ve Ticaret A.Ş.",
+  "activeIngredient": "Örnek Etken Madde",
+  "strength": "500mg",
+  "dosageForm": "Tablet",
+  "packageSize": "20 tablet",
+  "expiryDate": "2026-12-31",
+  "batchNumber": "B2024001",
+  "registrationNumber": "TR-REG-2024-001",
+  "atcCode": "N02BE01",
+  "pregnancy": "Gebelikte güvenli kullanım için doktorunuza danışın",
+  "breastfeeding": "Emzirme sırasında kullanım güvenlidir",
+  "driving": "Araç kullanımını etkilemez",
+  "alcohol": "Alkol ile birlikte kullanımda karaciğer hasarı riski artar",
+  "foodInteractions": [
+    "Aç karnına alınabilir",
+    "Yemeklerle birlikte alınabilir"
+  ],
+  "contraindications": [
+    "İlaç alerjisi",
+    "Şiddetli karaciğer yetmezliği"
+  ],
+  "overdose": "Aşırı dozda karaciğer hasarı riski. Acil tıbbi müdahale gerekebilir.",
+  "pharmacokinetics": "Oral yoldan hızlı emilir, 30-60 dakikada maksimum etki",
+  "clinicalTrials": "Geniş klinik çalışmalarda güvenliliği kanıtlanmıştır",
+  "costEffectiveness": "Yüksek maliyet etkinliği, düşük fiyat",
+  "alternatives": [
+    "Alternatif İlaç 1",
+    "Alternatif İlaç 2",
+    "Alternatif İlaç 3"
+  ],
+  "patientReviews": [
+    {
+      "rating": 5,
+      "comment": "Çok etkili, hızlı etki gösteriyor",
+      "date": "2024-01-15"
+    },
+    {
+      "rating": 4,
+      "comment": "Ateşimi düşürdü, yan etki yok",
+      "date": "2024-01-10"
+    }
+  ],
+  "medicalReviews": [
+    {
+      "doctor": "Dr. Örnek Doktor",
+      "specialty": "Aile Hekimi",
+      "review": "Güvenli ve etkili bir ilaç, reçetesiz kullanım için uygun",
+      "date": "2024-01-20"
+    }
+  ]
+} 
