@@ -1,193 +1,123 @@
-# MediGuide - İlaç Bilgilendirme Platformu
+# 💊 İlaç Bilgi Merkezi - Dünyanın En İyi İlaç Bilgi Sitesi
 
-Türkiye'nin en kapsamlı ve güvenilir ilaç bilgilendirme platformu. Modern web teknolojileri ile geliştirilmiş, kullanıcı dostu arayüz ile sağlığınız için doğru bilgilere ulaşmanızı sağlıyoruz.
+🌟 **Modern, interaktif ve kullanıcı dostu ilaç bilgilendirme platformu**
 
-## 🚀 Özellikler
+## ✨ Özellikler
 
-- **📱 Responsive Tasarım**: Tüm cihazlarda mükemmel görünüm
-- **🔍 Gelişmiş Arama**: İlaç adı, etken madde veya hastalık ile arama
-- **📚 Kapsamlı Bilgi**: Dozaj, yan etkiler, etkileşimler ve uyarılar
-- **⚡ Hızlı Performans**: Modern teknolojiler ile optimize edilmiş
-- **🎨 Modern UI/UX**: Kullanıcı dostu ve estetik arayüz
-- **🔒 Güvenli**: HTTPS ve güvenlik standartları
-- **📖 Sağlık Rehberi**: Genel sağlık bilgileri ve ipuçları
+### 🎨 **Modern UI/UX Tasarım**
+- Stunning animasyonlar ve glassmorphism efektleri
+- Gradient arka planlar ve modern renk paleti
+- Responsive tasarım (mobil uyumlu)
+- Smooth hover animasyonları
 
-## 🛠️ Teknolojiler
+### 🔍 **İlaç Arama ve Detay**
+- Gelişmiş ilaç arama sistemi
+- Detaylı ilaç bilgileri
+- Reçete renk kodlaması (mavi, kırmızı, beyaz)
+- KÜB PDF linkleri
+- Onaylı ilaç işaretleri
 
-- **Frontend**: React 18, TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Routing**: React Router DOM
-- **Build Tool**: Vite
-- **Package Manager**: npm
+### 🔬 **İlaç Etkileşim Kontrolü**
+- İlaç etkileşim kontrolü
+- Detaylı etkileşim raporları
+- Güvenlik uyarıları
+
+### 📚 **Sağlık Rehberi**
+- Kapsamlı sağlık bilgileri
+- Kategorize edilmiş içerik
+- Uzman tavsiyeleri
+
+### 🖼️ **Gelişmiş Görsel Özellikler**
+- İlaç görsellerinde zoom özelliği
+- Mouse wheel zoom kontrolü
+- Full-screen modal görüntüleme
+- Smooth pan ve zoom animasyonları
+
+## 🚀 Teknolojiler
+
+- **Frontend:** React 18 + TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Build Tool:** Vite
+- **Deployment:** GitHub Pages
 
 ## 📦 Kurulum
 
-### Gereksinimler
-
-- Node.js (v16 veya üzeri)
-- npm veya yarn
-
-### Adımlar
-
-1. **Projeyi klonlayın**
-   ```bash
-   git clone https://github.com/kullaniciadi/mediguide.git
-   cd mediguide
-   ```
-
-2. **Bağımlılıkları yükleyin**
-   ```bash
-   npm install
-   ```
-
-3. **Geliştirme sunucusunu başlatın**
-   ```bash
-   npm run dev
-   ```
-
-4. **Tarayıcıda açın**
-   ```
-   http://localhost:3000
-   ```
-
-## 🚀 Kullanım
-
-### Geliştirme
-
 ```bash
-# Geliştirme sunucusu
+# Repository'yi klonlayın
+git clone https://github.com/[YOUR_USERNAME]/ilac-bilgi-merkezi.git
+cd ilac-bilgi-merkezi
+
+# Bağımlılıkları yükleyin
+npm install
+
+# Development server'ı başlatın
 npm run dev
 
 # Production build
 npm run build
 
-# Build önizleme
-npm run preview
-
-# Linting
-npm run lint
-
-# Linting düzeltme
-npm run lint:fix
+# GitHub Pages'e deploy
+npm run deploy
 ```
 
-### Production
+## 🌐 Canlı Demo
 
-```bash
-# Build oluştur
-npm run build
+**Site URL:** [https://[YOUR_USERNAME].github.io/ilac-bilgi-merkezi](https://[YOUR_USERNAME].github.io/ilac-bilgi-merkezi)
 
-# Build klasörünü kontrol et
-npm run preview
-```
+## 📱 Sayfalar
 
-## 📁 Proje Yapısı
+- **Ana Sayfa:** Hero slider, özellikler, istatistikler
+- **İlaç Arama:** Gelişmiş arama ve filtreleme
+- **İlaç Detay:** Kapsamlı ilaç bilgileri
+- **İlaç Etkileşim:** Etkileşim kontrolü
+- **Sağlık Rehberi:** Sağlık bilgileri
+- **Hakkımızda:** Ekip ve misyon
 
-```
-src/
-├── components/          # Yeniden kullanılabilir bileşenler
-│   ├── Navbar.tsx      # Navigasyon çubuğu
-│   └── Footer.tsx      # Alt bilgi
-├── pages/              # Sayfa bileşenleri
-│   ├── Home.tsx        # Ana sayfa
-│   ├── DrugSearch.tsx  # İlaç arama
-│   ├── DrugDetail.tsx  # İlaç detay
-│   ├── HealthGuide.tsx # Sağlık rehberi
-│   └── About.tsx       # Hakkımızda
-├── App.tsx             # Ana uygulama bileşeni
-├── main.tsx           # Uygulama giriş noktası
-└── index.css          # Global stiller
-```
+## 🎯 Öne Çıkan Özellikler
 
-## 🎨 Tasarım Sistemi
+### 🎨 **Animasyonlar**
+- Staggered animasyonlar
+- Hover efektleri
+- Floating particles
+- Rotating elements
+- Pulse animasyonları
 
-### Renkler
+### 🔍 **Arama Sistemi**
+- Real-time arama
+- Otomatik tamamlama
+- Filtreleme seçenekleri
+- Responsive tasarım
 
-- **Primary**: Mavi tonları (#0ea5e9)
-- **Secondary**: Gri tonları (#64748b)
-- **Success**: Yeşil (#10b981)
-- **Warning**: Sarı (#f59e0b)
-- **Error**: Kırmızı (#ef4444)
-
-### Tipografi
-
-- **Font**: Inter
-- **Başlıklar**: Bold (700)
-- **Alt başlıklar**: Semibold (600)
-- **Normal metin**: Regular (400)
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🔧 Konfigürasyon
-
-### Environment Variables
-
-```env
-VITE_APP_TITLE=MediGuide
-VITE_APP_DESCRIPTION=İlaç Bilgilendirme Platformu
-```
-
-### Tailwind CSS
-
-Proje Tailwind CSS ile stillendirilmiştir. Özel renkler ve animasyonlar `tailwind.config.js` dosyasında tanımlanmıştır.
-
-## 🚀 Deployment
-
-### GitHub Pages
-
-1. **Repository ayarlarına gidin**
-2. **Pages sekmesini seçin**
-3. **Source olarak GitHub Actions seçin**
-4. **Workflow dosyası otomatik oluşturulacak**
-
-### Netlify
-
-1. **Netlify'a projeyi bağlayın**
-2. **Build command**: `npm run build`
-3. **Publish directory**: `dist`
-
-### Vercel
-
-1. **Vercel'e projeyi import edin**
-2. **Framework preset**: Vite
-3. **Build command otomatik algılanacak**
+### 📊 **Veri Yönetimi**
+- TypeScript ile tip güvenliği
+- Modüler kod yapısı
+- Performans optimizasyonu
 
 ## 🤝 Katkıda Bulunma
 
-1. **Fork yapın**
-2. **Feature branch oluşturun** (`git checkout -b feature/amazing-feature`)
-3. **Değişikliklerinizi commit edin** (`git commit -m 'Add amazing feature'`)
-4. **Branch'inizi push edin** (`git push origin feature/amazing-feature`)
-5. **Pull Request oluşturun**
+1. Fork edin
+2. Feature branch oluşturun (`git checkout -b feature/AmazingFeature`)
+3. Commit edin (`git commit -m 'Add some AmazingFeature'`)
+4. Push edin (`git push origin feature/AmazingFeature`)
+5. Pull Request oluşturun
 
 ## 📄 Lisans
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+Bu proje MIT lisansı altında lisanslanmıştır.
+
+## 👥 Ekip
+
+- **Geliştirici:** [Adınız]
+- **Tasarım:** Modern UI/UX
+- **İçerik:** Sağlık uzmanları
 
 ## 📞 İletişim
 
-- **E-posta**: info@mediguide.com
-- **Telefon**: +90 212 555 0123
-- **Adres**: İstanbul, Türkiye
-
-## 🙏 Teşekkürler
-
-- [React](https://reactjs.org/) - UI kütüphanesi
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-- [Framer Motion](https://www.framer.com/motion/) - Animasyon kütüphanesi
-- [Lucide](https://lucide.dev/) - İkon kütüphanesi
-- [Vite](https://vitejs.dev/) - Build tool
-
-## ⚠️ Önemli Uyarı
-
-Bu platform sadece bilgilendirme amaçlıdır. İlaç kullanımı öncesi mutlaka doktorunuza danışınız. Bu site tıbbi tavsiye yerine geçmez.
+- **Email:** [email@example.com]
+- **GitHub:** [https://github.com/[YOUR_USERNAME]]
 
 ---
 
-**MediGuide** ile sağlığınız için doğru bilgilere ulaşın! 💊✨ 
+⭐ **Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!** 
