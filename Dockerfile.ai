@@ -1,0 +1,27 @@
+FROM python:3.9-slim
+
+# Çalışma dizinini ayarla
+WORKDIR /app
+
+# Sistem bağımlılıklarını yükle
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python bağımlılıklarını kopyala ve yükle
+COPY requirements_ai.txt .
+RUN pip install --no-cache-dir -r requirements_ai.txt
+
+# Uygulama dosyalarını kopyala
+COPY ai_server.py .
+COPY parol_ilac_verisi.json .
+
+# Dizinleri oluştur
+RUN mkdir -p /app/data /app/logs
+
+# Port'u aç
+EXPOSE 5000
+
+# Uygulamayı başlat
+CMD ["python", "ai_server.py"] 

@@ -9,6 +9,7 @@ import HealthGuide from './pages/HealthGuide'
 import About from './pages/About'
 import Footer from './components/Footer'
 import SmartDrugUploader from './components/SmartDrugUploader'
+import HealthAIChatbot from './components/HealthAIChatbot'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           </Routes>
         </motion.main>
         <Footer />
+        <HealthAIChatbot />
       </div>
     </Router>
   )

@@ -1,0 +1,53 @@
+FROM python:3.9-slim
+
+# Çalışma dizinini ayarla
+WORKDIR /app
+
+# Sistem bağımlılıklarını yükle
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    poppler-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python bağımlılıklarını kopyala ve yükle
+COPY requirements_ai.txt .
+RUN pip install --no-cache-dir -r requirements_ai.txt
+
+# PDF işleme scriptini kopyala
+COPY pdf_processor.py .
+
+# Dizinleri oluştur
+RUN mkdir -p /app/pdfs /app/data
+
+# Worker scriptini oluştur
+RUN echo '#!/usr/bin/env python3\n\
+import time\n\
+import os\n\
+from pdf_processor import PDFProcessor\n\
+\n\
+def main():\n\
+    processor = PDFProcessor()\n\
+    \n\
+    while True:\n\
+        try:\n\
+            # PDF dizinini kontrol et\n\
+            pdf_dir = "/app/pdfs"\n\
+            if os.path.exists(pdf_dir):\n\
+                processor.process_directory(pdf_dir)\n\
+            \n\
+            # 30 saniye bekle\n\
+            time.sleep(30)\n\
+            \n\
+        except Exception as e:\n\
+            print(f"Worker hatası: {e}")\n\
+            time.sleep(60)\n\
+\n\
+if __name__ == "__main__":\n\
+    main()' > worker.py
+
+# Worker'ı çalıştırılabilir yap
+RUN chmod +x worker.py
+
+# Uygulamayı başlat
+CMD ["python", "worker.py"] 

@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  # AI API Sunucusu
+  ai-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.ai
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - drug-network
+
+  # N8N Otomasyon
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=drugsystem2024
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=Europe/Istanbul
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n-workflow.json:/home/node/.n8n/workflows.json
+    restart: unless-stopped
+    networks:
+      - drug-network
+    depends_on:
+      - ai-server
+
+  # PostgreSQL (N8N için)
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=n8n
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=n8n_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - drug-network
+
+  # Redis (Cache için)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - drug-network
+
+  # PDF İşleme Worker
+  pdf-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    environment:
+      - AI_SERVER_URL=http://ai-server:5000
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./pdfs:/app/pdfs
+      - ./data:/app/data
+    restart: unless-stopped
+    networks:
+      - drug-network
+    depends_on:
+      - ai-server
+      - redis
+
+volumes:
+  n8n_data:
+  postgres_data:
+  redis_data:
+
+networks:
+  drug-network:
+    driver: bridge 

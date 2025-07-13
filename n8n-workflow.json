@@ -1,0 +1,296 @@
+{
+  "name": "TİTCK PDF Otomatik İndirme ve İşleme",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cron Trigger",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://www.titck.gov.tr/ilac/ilac-bilgileri",
+        "options": {}
+      },
+      "id": "http-request-titck",
+      "name": "TİTCK Sayfasını Çek",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// HTML içinden PDF linklerini çıkar\nconst html = $input.first().json.body;\nconst pdfLinks = [];\n\n// PDF linklerini bul\nconst pdfRegex = /href=[\"']([^\"']*\\.pdf)[\"']/gi;\nlet match;\n\nwhile ((match = pdfRegex.exec(html)) !== null) {\n  pdfLinks.push({\n    url: match[1],\n    filename: match[1].split('/').pop(),\n    timestamp: new Date().toISOString()\n  });\n}\n\n// Sonuçları döndür\nreturn pdfLinks.map(link => ({ json: link }));"
+      },
+      "id": "extract-pdf-links",
+      "name": "PDF Linklerini Çıkar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 5,
+        "options": {}
+      },
+      "id": "split-batches",
+      "name": "PDF'leri Grupla",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "download-pdf",
+      "name": "PDF İndir",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "command": "python3 pdf_processor.py",
+        "arguments": "{{ $json.filename }}",
+        "options": {
+          "cwd": "/app"
+        }
+      },
+      "id": "process-pdf",
+      "name": "PDF İşle",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:5000/api/process-drug-data",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $json.filename }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $json.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "send-to-ai",
+      "name": "AI'ye Gönder",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": "drug_database",
+        "dataToSend": "json",
+        "jsonData": "={{ $json }}",
+        "options": {}
+      },
+      "id": "save-to-google-sheets",
+      "name": "Google Sheets'e Kaydet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1780, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "error-check",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "equal"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "error-check",
+      "name": "Hata Kontrolü",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [2000, 300]
+    },
+    {
+      "parameters": {
+        "message": "PDF işleme hatası: {{ $json.error }}",
+        "additionalFields": {
+          "channel": "#drug-processing"
+        }
+      },
+      "id": "slack-notification",
+      "name": "Slack Bildirimi",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [2220, 200]
+    },
+    {
+      "parameters": {
+        "message": "PDF başarıyla işlendi: {{ $json.filename }}",
+        "additionalFields": {
+          "channel": "#drug-processing"
+        }
+      },
+      "id": "success-notification",
+      "name": "Başarı Bildirimi",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [2220, 400]
+    }
+  ],
+  "connections": {
+    "Cron Trigger": {
+      "main": [
+        [
+          {
+            "node": "TİTCK Sayfasını Çek",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TİTCK Sayfasını Çek": {
+      "main": [
+        [
+          {
+            "node": "PDF Linklerini Çıkar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF Linklerini Çıkar": {
+      "main": [
+        [
+          {
+            "node": "PDF'leri Grupla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF'leri Grupla": {
+      "main": [
+        [
+          {
+            "node": "PDF İndir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF İndir": {
+      "main": [
+        [
+          {
+            "node": "PDF İşle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF İşle": {
+      "main": [
+        [
+          {
+            "node": "AI'ye Gönder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI'ye Gönder": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets'e Kaydet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets'e Kaydet": {
+      "main": [
+        [
+          {
+            "node": "Hata Kontrolü",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hata Kontrolü": {
+      "main": [
+        [
+          {
+            "node": "Slack Bildirimi",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Başarı Bildirimi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "versionId": "1"
+} 
